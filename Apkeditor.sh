@@ -1,9 +1,7 @@
 #!/bin/bash
 
-# Path to APKEditor (update this to your APKEditor path)
 APKEDITOR_PATH="APKEditor.jar"
 
-# Function to display usage instructions
 usage() {
   echo "Usage: $0 [command]"
   echo "Commands:"
@@ -16,13 +14,11 @@ usage() {
   exit 1
 }
 
-# Check if APKEditor exists
 if [ ! -f "$APKEDITOR_PATH" ]; then
   echo "Error: APKEditor not found at $APKEDITOR_PATH. Please download it from https://github.com/REAndroid/APKEditor."
   exit 1
 fi
 
-# Prompt user for command
 echo "Select a command:"
 echo "1) Decompile APK"
 echo "2) Build APK"
@@ -32,7 +28,6 @@ echo "5) Protect APK"
 echo "6) Get APK Info"
 read -p "Enter command number (1-6): " COMMAND
 
-# Execute the selected command
 case $COMMAND in
   1)
     # Decompile APK
@@ -79,7 +74,6 @@ case $COMMAND in
     ;;
 esac
 
-# Check if the command was successful
 if [ $? -eq 0 ]; then
   echo "Command completed successfully!"
 else
